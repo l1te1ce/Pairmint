@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 import { env } from "process";
 
+const allowedDevOrigins = env.REPLIT_DOMAINS?.split(",").filter(Boolean) ?? [];
+
 const nextConfig: NextConfig = {
-  allowedDevOrigins: [env.REPLIT_DOMAINS.split(",")[0]],
+  allowedDevOrigins,
 };
 
 module.exports = nextConfig;
